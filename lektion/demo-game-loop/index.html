@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo: Game Loop Skeleton</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #1a1a1a;
+      color: #0f0;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #0f0;
+      text-align: center;
+    }
+    .info {
+      background: #2a2a2a;
+      padding: 15px;
+      border-left: 4px solid #0f0;
+      margin: 20px 0;
+    }
+    pre {
+      background: #0a0a0a;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    button {
+      background: #0f0;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #0d0;
+    }
+    #console-output {
+      background: #0a0a0a;
+      padding: 15px;
+      border-radius: 5px;
+      height: 200px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+    .log-entry {
+      margin: 2px 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>🎮 Game Loop Skeleton</h1>
+  
+  <div class="info">
+    <strong>Instruktion:</strong> Öppna Developer Tools (F12) → Console för att se loopen köra!
+  </div>
+  
+  <div>
+    <button id="start-btn">▶️ Starta Loop</button>
+    <button id="stop-btn">⏹️ Stoppa Loop (Game Over)</button>
+    <button id="reset-btn">🔄 Återställ</button>
+  </div>
+  
+  <div class="info">
+    <strong>Console Output:</strong>
+    <div id="console-output"></div>
+  </div>
+  
+  <pre><code>// Detta är koden som körs:
+
+const game = {
+  snake: [{ x: 5, y: 5 }],
+  direction: 'RIGHT',
+  apple: { x: 8, y: 7 },
+  score: 0,
+  isGameOver: false,
+  speed: 200
+};
+
+function moveSnake() {
+  console.log('🐍 Ormen rör sig!');
+}
+
+function checkCollisions() {
+  console.log('🔍 Kollar kollisioner...');
+}
+
+function renderGame() {
+  console.log('🎨 Ritar spelet...');
+}
+
+function gameLoop() {
+  console.log('⏱️ Tick!');
+  
+  if (game.isGameOver) {
+    console.log('💀 Game Over! Score:', game.score);
+    return;  // STOPPA LOOPEN!
+  }
+  
+  moveSnake();
+  checkCollisions();
+  renderGame();
+  
+  setTimeout(gameLoop, game.speed);
+}
+
+gameLoop();  // STARTA!
+</code></pre>
+  
+  <script src="game-loop.js"></script>
+  
+</body>
+</html>
